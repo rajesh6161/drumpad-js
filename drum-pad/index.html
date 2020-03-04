@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drum Pads</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <h1 class="heading">Javascript Drum Pad</h1>
+    <div id="drum-machine">
+        
+        <div id="display">
+            <div style="background-color: chartreuse;" class="drum-pad button" id="Q">
+                <h1 class="pad-name">Q</h1>
+            </div>
+            <div style="background-color: coral;" class="drum-pad button" id="W">
+                <h1 class="pad-name">W</h1>
+            </div>
+            <div style="background-color: cornflowerblue;" class="drum-pad button" id="E">
+               <h1 class="pad-name">E</h1>
+            </div>
+            <div style="background-color: crimson;" class="drum-pad button" id="A">
+                <h1 class="pad-name">A</h1>
+            </div>
+            <div style="background-color: cyan;" class="drum-pad button" id="S">
+                <h1 class="pad-name">S</h1>
+            </div>
+            <div style="background-color: darkgoldenrod;" class="drum-pad button" id="D">
+                <h1 class="pad-name">D</h1>
+            </div>
+            <div style="background-color: darkkhaki;" class="drum-pad button" id="Z">
+                <h1 class="pad-name">Z</h1>
+            </div>
+            <div style="background-color: darkorchid;" class="drum-pad button" id="X">
+                <h1 class="pad-name">X</h1>
+            </div>
+            <div style="background-color: deeppink;" class="drum-pad button" id="C">
+                <h1 class="pad-name">C</h1>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(()=>{
+
+        
+        
+       const sound1 = new Howl({
+           src: ['./sounds/bubbles.mp3']
+       });
+       const sound2 = new Howl({
+           src: ['./sounds/clay.mp3']
+       });
+       const sound3 = new Howl({
+           src: ['./sounds/confetti.mp3']
+       });
+       const sound4 = new Howl({
+           src: ['./sounds/corona.mp3']
+       });
+       const sound5 = new Howl({
+           src: ['./sounds/dotted-spiral.mp3']
+       });
+       const sound6 = new Howl({
+           src: ['./sounds/flash-1.mp3']
+       });
+       const sound7 = new Howl({
+           src: ['./sounds/flash-2.mp3']
+       });
+       const sound8 = new Howl({
+           src: ['./sounds/flash-3.mp3']
+       });
+       const sound9 = new Howl({
+           src: ['./sounds/glimmer.mp3']
+       });
+
+       
+       var colors = ['red', 'yellow', 'green', 'coral', 'antiquewhite'];
+       var num = Math.floor(Math.random()*5);
+       var change = colors[num];
+
+
+
+
+       $("body").keydown((event)=>{
+           if(event.key === "q"){
+               sound1.play();
+               $('body').css("backgroundColor", "chartreuse");
+               $('.drum-pad').toggleClass('drum-pad:active');
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "w"){
+               sound2.play();
+               $('body').css("backgroundColor", "coral");
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "e"){
+               sound3.play();
+               $('body').css("backgroundColor", "cornflowerblue");
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "a"){
+               sound4.play();
+               $('body').css("backgroundColor", "crimson");
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "s"){
+               sound5.play();
+               $('body').css("backgroundColor", "cyan");
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "d"){
+               sound6.play();
+               $('body').css("backgroundColor", "darkgoldenrod");
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "z"){
+               sound7.play();
+               $('body').css("backgroundColor", "darkkhaki");
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "x"){
+               sound8.play();
+               $('body').css("backgroundColor", "darkorchid");
+           
+           }
+       });
+       $("body").keydown((event)=>{
+           if(event.key === "c"){
+               sound9.play();
+               $('body').css("backgroundColor", "deeppink");
+           
+           }
+       });
+
+       //////////////// click events /////////////////////////////
+       $("#Q").on('click', ()=>{
+           
+               sound1.play();
+               $('body').css("backgroundColor", "chartreuse");
+               $('.heading').css("color", change);
+           
+       });
+       $("#W").on('click', ()=>{
+           
+               sound2.play();
+               $('body').css("backgroundColor", "coral");
+               $('.heading').css("color", change);
+           
+       });
+       $("#E").on('click', ()=>{
+           
+               sound3.play();
+               $('body').css("backgroundColor", "cornflowerblue");
+               $('.heading').css("color", change);
+           
+       });
+       $("#A").on('click', ()=>{
+           
+               sound4.play();
+               $('body').css("backgroundColor", "crimson");
+               $('.heading').css("color", change);
+           
+       });
+       $("#S").on('click', ()=>{
+           
+               sound5.play();
+               $('body').css("backgroundColor", "cyan");
+               $('.heading').css("color", change);
+           
+       });
+       $("#D").on('click', ()=>{
+          
+               sound6.play();
+               $('body').css("backgroundColor", "darkgoldenrod");
+               $('.heading').css("color", change);
+           
+       });
+       $("#Z").on('click', ()=>{
+           
+               sound7.play();
+               $('body').css("backgroundColor", "darkkhaki");
+               $('.heading').css("color", change);
+           
+       });
+       $("#X").on('click', ()=>{
+           
+               sound8.play();
+               $('body').css("backgroundColor", "darkorchid");
+               $('.heading').css("color", change);
+           
+       });
+       $("#C").on('click', ()=>{
+           
+               sound9.play();
+               $('body').css("backgroundColor", "deeppink");
+               $('.heading').css("color", change);
+           
+       });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+</script>
+</html>
